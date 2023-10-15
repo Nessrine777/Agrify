@@ -1,0 +1,80 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 6, 2023, 12:57:27 AM
+    Author     : alien kami sama
+*/
+
+.white-bg{
+    -fx-background-color: #fff;
+  
+}
+.border{
+    -fx-border-color: #000;
+    -fx-border-width: .2px 0 .2px 0;
+        
+}
+.header-1{
+    -fx-border-color: linear-gradient(to bottom right, #22c738, #0ec211);
+    -fx-border-width: 0 0 0 2px;
+    -fx-padding: 0 0 0 5px;
+}
+.radius{
+    -fx-background-radius: 5px;
+}
+.shadow{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 5,0,0,0);
+}
+.bg-color-1{
+    -fx-background-color: linear-gradient(to bottom right, #22c738, #0ec211); 
+}
+.btn-1{
+    -fx-background-color: transparent;
+    -fx-border-color: #fff ;
+    -fx-border-width:1px;
+    -fx-text-fill: #fff;
+    -fx-font-size:13px;
+    -fx-font-family: Ariel;
+    -fx-cursor: hand;
+}
+.btn-1:hover{
+    -fx-background-color: #fff;
+    -fx-text-fill:#000;
+    
+}
+.table-view{
+    -fx-padding: 0;
+    -fx-border-radius:2px;
+    -fx-border-color:linear-gradient(to bottom right, #22c738, #0ec211);
+}
+.table-view .column-header-background{
+    -fx-background-color:linear-gradient(to bottom right, #22c738, #0ec211);
+    -fx-background-insets:0 0 0 0;
+    -fx-background-radius:2px 2px 0 0;
+}
+.table-view .column-header, .filter{
+    -fx-size:40px;
+    -fx-background-color: transparent;
+}
+.table-view .column-header .label{
+    -fx-font-family: Ariel;
+    -fx-text-fill:#fff;
+}
+.com_box ,.btn-2{
+   -fx-background-color:#fff;
+   -fx-border-color:linear-gradient(to bottom right, #22c738, #0ec211);
+    -fx-cursor: hand;
+}
+.btn-2{
+    -fx-text-fill:linear-gradient(to bottom right, #22c738, #0ec211);
+    -fx-font-family: Ariel;
+    -fx-font-size:14px;
+ 
+}
+.btn-2:hover{
+    -fx-background-color: linear-gradient(to bottom right, #22c738, #0ec211); ;
+    -fx-text-fill:#fff;
+}   
