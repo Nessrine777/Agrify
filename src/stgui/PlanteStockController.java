@@ -24,6 +24,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.cell.PropertyValueFactory;
 import services.PlanteCrud;
 
+
 /**
  * FXML Controller class
  *

@@ -25,6 +25,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import services.AnimalCrud;
 
 
+
 /**
  * FXML Controller class
  *
