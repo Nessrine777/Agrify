@@ -182,5 +182,52 @@ public class PlanteStockController implements Initializable {
         planteList.remove(selectedPlante);
     }
     }
+   @FXML
+    private void fnsta(ActionEvent event) {
+          try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AnimalStock.fxml"));
+        Parent root = loader.load();
+
+        Scene AnimalStockScene = new Scene(root);
+
+        Stage stage = (Stage) btmenusta.getScene().getWindow();
+
+        stage.setScene(AnimalStockScene);
+    } catch (IOException e) {
+              
+    }
+    }
+
+    @FXML
+    private void fnstp(ActionEvent event) {
+         try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("PlanteStock.fxml"));
+        Parent root = loader.load();
+
+        Scene PlanteStockScene = new Scene(root);
+
+        Stage stage = (Stage) btmenustp.getScene().getWindow();
+
+        stage.setScene(PlanteStockScene);
+    } catch (IOException e) {
+             
+    }
+    }
+
+    @FXML
+    private void fnstd(ActionEvent event) {
+              try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("StockDivers.fxml"));
+        Parent root = loader.load();
+
+        Scene StockDiversScene = new Scene(root);
+
+        Stage stage = (Stage) btmenustd.getScene().getWindow();
+
+        stage.setScene(StockDiversScene);
+    } catch (IOException e) {  
+             
+    }
+    }
     
 }
