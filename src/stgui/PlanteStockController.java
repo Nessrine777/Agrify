@@ -16,15 +16,20 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import entities.*;
+import entities.*; 
+import java.io.IOException; 
 import java.sql.Date;
 import java.time.LocalDate;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.cell.PropertyValueFactory;
-import services.PlanteCrud;  
- 
- 
+import javafx.stage.Stage;
+import services.PlanteCrud;
+
 /**
  * FXML Controller class
  *
@@ -69,6 +74,8 @@ public class PlanteStockController implements Initializable {
     @FXML
     private Button btsuppstp;
     private ObservableList<Plante> planteList = FXCollections.observableArrayList();
+    @FXML
+    private Label lbmstp;
 
 
     /**
@@ -137,7 +144,6 @@ public class PlanteStockController implements Initializable {
          Plante selectedPlante = tablevstp.getSelectionModel().getSelectedItem();
 
       if (selectedPlante != null) {
-        // Récupérez les nouvelles valeurs des champs du formulaire
         String newNomPlante = tfnomstp.getText();
         EtatPlante newEtatPlante = cbetatstp.getValue();
         Health newHealthPlante = cbhealthstp.getValue();
@@ -145,21 +151,18 @@ public class PlanteStockController implements Initializable {
         LocalDate localDate = datestp.getValue();
         Date newDateEntreeStock = Date.valueOf(localDate);
 
-        // Mettez à jour les propriétés de l'objet sélectionné
         selectedPlante.setNomplante(newNomPlante);
         selectedPlante.setEtatplante(newEtatPlante);
         selectedPlante.setHealthplante(newHealthPlante);
         selectedPlante.setQuantiteplante(newQuantitePlante);
         selectedPlante.setDateEntreeStock(newDateEntreeStock);
 
-        // Mettez à jour la ligne sélectionnée dans la TableView
         int selectedIndex = tablevstp.getSelectionModel().getSelectedIndex();
         planteList.set(selectedIndex, selectedPlante);
         
         PlanteCrud pc = new PlanteCrud();
         pc.modifierPlante(selectedPlante);
 
-        // Réinitialisez les champs du formulaire
         tfnomstp.clear();
         cbetatstp.getSelectionModel().clearSelection();
         cbhealthstp.getSelectionModel().clearSelection();
@@ -181,8 +184,14 @@ public class PlanteStockController implements Initializable {
         
         planteList.remove(selectedPlante);
     }
+         tfnomstp.clear();
+        cbetatstp.getSelectionModel().clearSelection();
+        cbhealthstp.getSelectionModel().clearSelection();
+        tfquantitestp.clear();
+        datestp.getEditor().clear();
     }
-   @FXML
+
+       @FXML
     private void fnsta(ActionEvent event) {
           try {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("AnimalStock.fxml"));
@@ -193,8 +202,8 @@ public class PlanteStockController implements Initializable {
         Stage stage = (Stage) btmenusta.getScene().getWindow();
 
         stage.setScene(AnimalStockScene);
-    } catch (IOException e) {
-              
+    } catch (IOException e) { 
+             
     }
     }
 
@@ -225,7 +234,7 @@ public class PlanteStockController implements Initializable {
         Stage stage = (Stage) btmenustd.getScene().getWindow();
 
         stage.setScene(StockDiversScene);
-    } catch (IOException e) {  
+    } catch (IOException e) {
              
     }
     }
