@@ -15,15 +15,21 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import entities.*;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.sql.Date;
+import java.sql.SQLException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import services.AnimalCrud;  
-
+import javafx.stage.Stage;
+import services.AnimalCrud;
 
 
 /**
@@ -68,6 +74,14 @@ public class AnimalStockController implements Initializable {
     @FXML
     private TableColumn<Animal, Date> coldatesta;
     private ObservableList<Animal> animalList = FXCollections.observableArrayList();
+    @FXML
+    private Button btmenusta;
+    @FXML
+    private Button btmenustp;
+    @FXML
+    private Button btmenustd;
+    @FXML
+    private Label lbmsta;
 
 
     /**
@@ -117,25 +131,26 @@ public class AnimalStockController implements Initializable {
     @FXML
     private void addsta(ActionEvent event) {
         
-    String nomanimal = tfnomsta.getText();
+   String nomanimal = tfnomsta.getText();
     SexeAnimal sexeanimal = cbsexesta.getValue(); 
     int ageanimal = Integer.parseInt(tfagesta.getText());
     float poidsanimal = Float.parseFloat(tfpoidssta.getText());
     Health healthanimal= cbhealthsta.getValue();
-       // Date DateEntreeStock
-   LocalDate localDate = tfdatesta.getValue();
+    LocalDate localDate = tfdatesta.getValue();
     Date DateEntreeStock = Date.valueOf(localDate);
 
         
     Animal a = new Animal(nomanimal, sexeanimal, ageanimal, poidsanimal, healthanimal, DateEntreeStock);    
     AnimalCrud  ac = new AnimalCrud ();
     ac.ajouterAnimal(a);
-    
-    // Ajoutez le nouvel animal à la liste
-    animalList.add(a);
-    
-    // Rafraîchissez la TableView
-    tablevsta.setItems(animalList);
+        animalList.add(a);
+        tablevsta.setItems(animalList);        
+        tfnomsta.clear();
+        cbsexesta.getSelectionModel().clearSelection();
+        tfagesta.clear();
+        tfpoidssta.clear();
+        cbhealthsta.getSelectionModel().clearSelection();
+        tfdatesta.getEditor().clear();
         
     }
 
@@ -169,7 +184,6 @@ public class AnimalStockController implements Initializable {
         AnimalCrud ac = new AnimalCrud();
         ac.modifierAnimal(selectedAnimal);
 
-        // Réinitialisez les champs du formulaire
         tfnomsta.clear();
         cbsexesta.getSelectionModel().clearSelection();
         tfagesta.clear();
@@ -192,5 +206,59 @@ public class AnimalStockController implements Initializable {
         
         animalList.remove(selectedAnimal);
     }
+       tfnomsta.clear();
+        cbsexesta.getSelectionModel().clearSelection();
+        tfagesta.clear();
+        tfpoidssta.clear();
+        cbhealthsta.getSelectionModel().clearSelection();
+        tfdatesta.getEditor().clear();
   }
+
+    @FXML
+    private void fnsta(ActionEvent event) {
+          try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AnimalStock.fxml"));
+        Parent root = loader.load();
+
+        Scene AnimalStockScene = new Scene(root);
+
+        Stage stage = (Stage) btmenusta.getScene().getWindow();
+
+        stage.setScene(AnimalStockScene);
+    } catch (IOException e) {
+              
+    }
+    }
+
+    @FXML
+    private void fnstp(ActionEvent event) {
+         try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("PlanteStock.fxml"));
+        Parent root = loader.load();
+
+        Scene PlanteStockScene = new Scene(root);
+
+        Stage stage = (Stage) btmenustp.getScene().getWindow();
+
+        stage.setScene(PlanteStockScene);
+    } catch (IOException e) {
+             
+    }
+    }
+
+    @FXML
+    private void fnstd(ActionEvent event) {
+              try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("StockDivers.fxml"));
+        Parent root = loader.load();
+
+        Scene StockDiversScene = new Scene(root);
+
+        Stage stage = (Stage) btmenustd.getScene().getWindow();
+
+        stage.setScene(StockDiversScene);
+    } catch (IOException e) {  
+             
+    }
+    }
 }
