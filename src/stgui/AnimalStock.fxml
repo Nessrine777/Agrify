@@ -16,17 +16,17 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
- 
+<?import javafx.scene.text.Font?> 
+
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="stgui.AnimalStockController">
    <children>
       <AnchorPane prefHeight="600.0" prefWidth="1300.0">
          <children>
             <BorderPane maxHeight="600.0" prefHeight="600.0" prefWidth="1300.0">
                <top>
-                  <AnchorPane prefHeight="40.0" prefWidth="1300.0" stylesheets="@animalstock.css" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="40.0" prefWidth="1300.0" stylesheets="@../design/TableauBordStyle.css" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane prefHeight="40.0" prefWidth="200.0" styleClass="bg-color-1" stylesheets="@animalstock.css">
+                        <AnchorPane prefHeight="40.0" prefWidth="200.0" styleClass="bg-color-1" stylesheets="@../design/TableauBordStyle.css">
                            <children>
                               <Label layoutX="50.0" layoutY="8.0" styleClass="..\design\TableauBordStyle.css" text="Gestion de Stock" textFill="WHITE">
                                  <font>
@@ -37,10 +37,20 @@
                         </AnchorPane>
                         <ImageView fitHeight="25.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="1261.0">
                            <image>
-                              <Image url="@../../../../../Downloads/GestionAnimal/src/Image/logout.png" />
+                              <Image url="@../Image/logout.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="211.0" layoutY="14.0" prefHeight="17.0" prefWidth="88.0" styleClass="header-1" stylesheets="@../../../../../Downloads/GestionAnimal/src/design/TableauBordStyle.css" text="Stock Animal" AnchorPane.leftAnchor="211.0" />
+                        <Label layoutX="211.0" layoutY="14.0" prefHeight="17.0" prefWidth="88.0" styleClass="header-1" stylesheets="@../design/TableauBordStyle.css" text="Stock Animal" AnchorPane.leftAnchor="211.0" />
+                        <ImageView fitHeight="25.0" fitWidth="19.0" layoutX="1232.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/settings-cogwheel-button.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="25.0" fitWidth="19.0" layoutX="1201.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/user.png" />
+                           </image>
+                        </ImageView>
                      </children>
                      <styleClass>
                         <String fx:value="white-bg" />
@@ -49,16 +59,16 @@
                   </AnchorPane>
                </top>
                <left>
-                  <AnchorPane prefHeight="582.0" prefWidth="200.0" styleClass="bg-color-1" stylesheets="@animalstock.css" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="582.0" prefWidth="200.0" styleClass="bg-color-1" stylesheets="@../design/TableauBordStyle.css" BorderPane.alignment="CENTER">
                      <children>
-                        <Button layoutX="9.0" layoutY="182.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" styleClass="btn-1" stylesheets="@../../../../../Downloads/GestionAnimal/src/design/TableauBordStyle.css" text="Stock Animal" />
-                        <Button layoutX="9.0" layoutY="233.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" styleClass="btn-1" stylesheets="@../../../../../Downloads/GestionAnimal/src/design/TableauBordStyle.css" text="Stock Plante" />
-                        <Button layoutX="9.0" layoutY="281.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" styleClass="btn-1" stylesheets="@../../../../../Downloads/GestionAnimal/src/design/TableauBordStyle.css" text="Stock Divers" />
-                        <Button layoutX="10.0" layoutY="388.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" styleClass="btn-1" stylesheets="@../../../../../Downloads/GestionAnimal/src/design/TableauBordStyle.css" text="Tâches" />
-                        <Button layoutX="9.0" layoutY="444.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" styleClass="btn-1" stylesheets="@../../../../../Downloads/GestionAnimal/src/design/TableauBordStyle.css" text="Réclamation" />
+                        <Button fx:id="btmenusta" layoutX="9.0" layoutY="182.0" mnemonicParsing="false" onAction="#fnsta" prefHeight="40.0" prefWidth="180.0" styleClass="btn-1" stylesheets="@../design/TableauBordStyle.css" text="Stock Animal" />
+                        <Button fx:id="btmenustp" layoutX="9.0" layoutY="233.0" mnemonicParsing="false" onAction="#fnstp" prefHeight="40.0" prefWidth="180.0" styleClass="btn-1" stylesheets="@../design/TableauBordStyle.css" text="Stock Plante" />
+                        <Button fx:id="btmenustd" layoutX="9.0" layoutY="281.0" mnemonicParsing="false" onAction="#fnstd" prefHeight="40.0" prefWidth="180.0" styleClass="btn-1" stylesheets="@../design/TableauBordStyle.css" text="Stock Divers" />
+                        <Button layoutX="10.0" layoutY="388.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" styleClass="btn-1" stylesheets="@../design/TableauBordStyle.css" text="Tâches" />
+                        <Button layoutX="9.0" layoutY="444.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="180.0" styleClass="btn-1" stylesheets="@../design/TableauBordStyle.css" text="Réclamation" />
                         <ImageView fitHeight="79.0" fitWidth="91.0" layoutX="56.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../Downloads/GestionAnimal/src/Image/logo.png" />
+                              <Image url="@../Image/logo.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -69,7 +79,7 @@
                      <children>
                         <VBox prefHeight="234.0" prefWidth="614.0">
                            <children>
-                             <TableView fx:id="tablevsta" prefHeight="334.0" prefWidth="463.0">
+                             <TableView fx:id="tablevsta" prefHeight="334.0" prefWidth="463.0" stylesheets="@../design/TableauBordStyle.css">
                                     <columns>
                                         <TableColumn fx:id="colidsta" prefWidth="75.0" text="ID">
                                             <cellValueFactory>
@@ -101,7 +111,7 @@
                                                 <PropertyValueFactory property="healthanimal" />
                                             </cellValueFactory>
                                         </TableColumn>
-                                        <TableColumn fx:id="coldatesta" prefWidth="116.0" text="Date d'entrée">
+                                        <TableColumn fx:id="coldatesta" prefWidth="137.0" text="Date d'entrée">
                                             <cellValueFactory>
                                                 <PropertyValueFactory property="dateEntreeStock" />
                                             </cellValueFactory>
@@ -116,12 +126,12 @@
                         </VBox>
                         <VBox layoutX="14.0" layoutY="256.0" prefHeight="270.0" prefWidth="93.0" spacing="20.0" stylesheets="@animalstock.css">
                            <children>
-                              <Label text="Nom">
+                              <Label stylesheets="@../design/TableauBordStyle.css" text="Nom">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label text="Sexe">
+                              <Label stylesheets="@../design/TableauBordStyle.css" text="Sexe">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -131,7 +141,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label text="Poids">
+                              <Label text="Poids(Kg)">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -150,7 +160,7 @@
                         </VBox>
                         <VBox layoutX="107.0" layoutY="256.0" prefHeight="270.0" prefWidth="508.0" spacing="10.0">
                            <children>
-                              <TextField fx:id="tfnomsta" prefHeight="20.0">
+                              <TextField fx:id="tfnomsta" prefHeight="20.0" promptText="Veuillez entrer le nom de l'animal">
                                  <VBox.margin>
                                     <Insets top="2.0" />
                                  </VBox.margin>
@@ -160,12 +170,12 @@
                                     <Insets top="5.0" />
                                  </VBox.margin>
                               </ComboBox>
-                              <TextField fx:id="tfagesta" prefHeight="20.0">
+                              <TextField fx:id="tfagesta" prefHeight="20.0" promptText="Veuillez entrer l'âge de l'animal">
                                  <VBox.margin>
                                     <Insets top="6.0" />
                                  </VBox.margin>
                               </TextField>
-                              <TextField fx:id="tfpoidssta" prefHeight="20.0" stylesheets="@animalstock.css">
+                              <TextField fx:id="tfpoidssta" prefHeight="20.0" promptText="Poids en Kg" stylesheets="@animalstock.css">
                                  <VBox.margin>
                                     <Insets top="5.0" />
                                  </VBox.margin>
@@ -182,9 +192,14 @@
                               </DatePicker>
                            </children>
                         </VBox>
-                        <Button fx:id="btajsta" layoutX="649.0" layoutY="501.0" mnemonicParsing="false" onAction="#addsta" prefWidth="75.0" text="Ajouter" />
-                        <Button fx:id="btmodifsta" layoutX="649.0" layoutY="170.0" mnemonicParsing="false" onAction="#modifsta" prefWidth="75.0" text="Modifier" />
-                        <Button fx:id="btsuppsta" layoutX="649.0" layoutY="209.0" mnemonicParsing="false" onAction="#suppsta" prefWidth="75.0" text="Supprimer" />
+                        <Button fx:id="btajsta" layoutX="649.0" layoutY="501.0" mnemonicParsing="false" onAction="#addsta" prefWidth="75.0" stylesheets="@../design/TableauBordStyle.css" text="Ajouter" />
+                        <Button fx:id="btmodifsta" layoutX="649.0" layoutY="170.0" mnemonicParsing="false" onAction="#modifsta" prefWidth="75.0" stylesheets="@../design/TableauBordStyle.css" text="Modifier" />
+                        <Button fx:id="btsuppsta" layoutX="649.0" layoutY="209.0" mnemonicParsing="false" onAction="#suppsta" prefWidth="75.0" stylesheets="@../design/TableauBordStyle.css" text="Supprimer" />
+                        <Label fx:id="lbmsta" layoutX="247.0" layoutY="510.0" prefHeight="35.0" prefWidth="369.0" textFill="#22c738">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
                      </children>
                      <BorderPane.margin>
                         <Insets />
