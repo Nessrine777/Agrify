@@ -16,7 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
+import javafx.stage.Stage; 
 
 /**
  *
@@ -25,9 +25,9 @@ import javafx.stage.Stage;
 public class MainFX extends Application {
     
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) { 
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("StockDivers.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("AnimalStock.fxml"));
             Scene scene = new Scene(root);
             
             primaryStage.setTitle("Gestion de Stock");
