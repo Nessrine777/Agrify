@@ -17,13 +17,18 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import entities.*;
+import java.io.IOException;
 import java.sql.Date;
 import java.time.LocalDate;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.cell.PropertyValueFactory;
-import services.StockDiversCrud; 
-
+import javafx.stage.Stage;
+import services.StockDiversCrud;
 
 /**
  * FXML Controller class
@@ -37,7 +42,7 @@ public class StockDiversController implements Initializable {
     @FXML
     private Button btmenustp;
     @FXML
-    private Button btmenusd;
+    private Button btmenustd;
     @FXML
     private TableView<StockDivers> tablevsd;
     @FXML
@@ -65,6 +70,8 @@ public class StockDiversController implements Initializable {
     @FXML
     private Button btsuppsd;
         private ObservableList<StockDivers> sdList = FXCollections.observableArrayList();
+    @FXML
+    private Label lbmstd;
 
 
     /**
@@ -128,27 +135,23 @@ public class StockDiversController implements Initializable {
         StockDivers selectedSD = tablevsd.getSelectionModel().getSelectedItem();
 
       if (selectedSD != null) {
-        // Récupérez les nouvelles valeurs des champs du formulaire
         NomDivStock newNomSD = cbnomsd.getValue();
         Health newHealthSD = cbhealthsd.getValue();
         float newQuantiteSD = Float.parseFloat(tfquantitesd.getText());
         LocalDate localDate = datesd.getValue();
         Date newDateEntreeStock = Date.valueOf(localDate);
 
-        // Mettez à jour les propriétés de l'objet sélectionné
         selectedSD.setNomSD(newNomSD);
         selectedSD.setHealthSD(newHealthSD);
         selectedSD.setQuantiteSD(newQuantiteSD);
         selectedSD.setDateEntreeStock(newDateEntreeStock);
 
-        // Mettez à jour la ligne sélectionnée dans la TableView
         int selectedIndex = tablevsd.getSelectionModel().getSelectedIndex();
         sdList.set(selectedIndex, selectedSD);
         
         StockDiversCrud sdc = new StockDiversCrud();
         sdc.modifierStockDivers(selectedSD);
 
-        // Réinitialisez les champs du formulaire
         cbnomsd.getSelectionModel().clearSelection();
         cbhealthsd.getSelectionModel().clearSelection();
         tfquantitesd.clear();
@@ -167,6 +170,57 @@ public class StockDiversController implements Initializable {
         
         sdList.remove(selectedSD);
     }
+       cbnomsd.getSelectionModel().clearSelection();
+        cbhealthsd.getSelectionModel().clearSelection();
+        tfquantitesd.clear();
+        datesd.getEditor().clear();
     }
-    
+
+      @FXML
+    private void fnsta(ActionEvent event) {
+          try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AnimalStock.fxml"));
+        Parent root = loader.load();
+
+        Scene AnimalStockScene = new Scene(root);
+
+        Stage stage = (Stage) btmenusta.getScene().getWindow();
+
+        stage.setScene(AnimalStockScene);
+    } catch (IOException e) {
+              
+    }
+    }
+
+    @FXML
+    private void fnstp(ActionEvent event) {
+         try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("PlanteStock.fxml"));
+        Parent root = loader.load();
+
+        Scene PlanteStockScene = new Scene(root);
+
+        Stage stage = (Stage) btmenustp.getScene().getWindow();
+
+        stage.setScene(PlanteStockScene);
+    } catch (IOException e) {
+             
+    }
+    }
+
+    @FXML
+    private void fnstd(ActionEvent event) {
+              try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("StockDivers.fxml"));
+        Parent root = loader.load();
+
+        Scene StockDiversScene = new Scene(root);
+
+        Stage stage = (Stage) btmenustd.getScene().getWindow();
+
+        stage.setScene(StockDiversScene);
+    } catch (IOException e) {
+             
+    }
+    }
 }
